@@ -22,10 +22,10 @@ export default function Post({ postData }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const paths = await getAllPostIds();
   return {
     paths,
-    fallback: false,
+    fallback: false
   };
 }
 
@@ -33,7 +33,7 @@ export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
   return {
     props: {
-      postData,
+      postData
     },
   };
 }
